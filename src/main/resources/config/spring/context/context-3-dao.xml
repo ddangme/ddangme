@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="customerDao" class="dao.customer.CustomerDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+	
+	<bean id="weatherDao" class="dao.weather.WeatherDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+	
+	<bean id="communityDao" class="dao.customer.CommunityDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+	
+	<bean id="adminDao" class="dao.admin.AdminDAO">
+		<constructor-arg ref="sqlSession"/>
+	</bean>
+	
+</beans>

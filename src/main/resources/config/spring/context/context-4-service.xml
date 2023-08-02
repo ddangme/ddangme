@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="customerService" class="service.customer.CustomerService">
+		<constructor-arg ref="customerDao"/>
+	</bean>
+	
+	<bean id="weatherService" class="service.weather.WeatherService">
+		<constructor-arg ref="weatherDao"/>
+	</bean>
+	
+	<bean id="communityService" class="service.customer.CommunityService">
+		<constructor-arg ref="communityDao"/>
+	</bean>
+	
+	<bean id="adminService" class="service.admin.AdminService">
+		<constructor-arg ref="adminDao"/>
+	</bean>
+</beans>

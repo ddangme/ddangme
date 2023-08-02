@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="community">
+	<!-- 게시판 추가 -->
+	<insert id="insertCategory" parameterType="communityCategory">
+		INSERT INTO community_category VALUES (community_category_seq.nextval, #{name}, #{link}, #{status}, 0)
+	</insert>
+
+	<!-- 커뮤니티 게시물 번호 -->	
+	<select id="getCommunityNo" resultType="int">
+		SELECT community_seq.nextval FROM dual
+	</select>
+
+	<!-- 커뮤니티 게시물 작성 -->
+	<insert id="communityWrite" parameterType="community">
+		INSERT INTO community VALUES(#{no}, #{category_no}, #{title}, #{content}, #{status}, #{customer_no}, #{show_group}, TO_CHAR(LOCALTIMESTAMP, 'YYYY-MM-DD HH24:MI:SS'), null, 0, 0, 0)
+	</insert>
+	
+	<!-- 커뮤니티 게시물 작성 (community_img 테이블) -->
+	<insert id="communityImgWrite" parameterType="communityImg">
+		INSERT INTO community_img VALUES(community_img_seq.nextval, #{image}, #{community_no})
+	</insert>
+	
+	<!-- 커뮤니티 게시물 작성 (community_category 테이블의 count 변경)  -->
+	<update id="setCommunityCategoryCount" parameterType="int">
+		UPDATE community_category SET count = count + 1 WHERE no = #{category_no}
+	</update>
+	
+	<!-- 커뮤니티 게시물 조회 -->	
+	<select id="communityList" resultType="community" parameterType="int">
+		SELECT cm.no, cm.title, c.name AS name, cm.hit, cm.insert_date, cm.good FROM community cm, customer c WHERE cm.customer_no = c.no
+		<if test="condition != -1">
+			AND category_no = #{no}
+		</if>
+		AND status = 0 ORDER BY cm.no DESC 
+	</select>
+	
+	<!-- 커뮤니티 게시물 검색 (관리자) -->	
+	<select id="searchCommunity" resultType="community" parameterType="community">
+		SELECT cm.category_no, cm.no, cm.title, cm.insert_date, c.name AS name FROM community cm, customer c
+		WHERE cm.customer_no = c.no
+		<if test="category_no != -1">
+			AND category_no like #{no}
+		</if>
+		<if test="title == ''">
+			AND content like #{content}
+		</if>
+		<if test="title == ''">
+			AND title like #{content}
+		</if>
+		AND status = 0 ORDER BY cm.no DESC 
+	</select>
+	
+	<!-- 커뮤니티 게시물 조회 (관리자) -->
+	<select id="getCommunityList" resultType="community">
+		SELECT cm.category_no, cm.no, cm.title, cm.insert_date, c.name AS name FROM community cm, customer c
+    			WHERE cm.customer_no = c.no 
+		AND cm.status = 0 ORDER BY no DESC
+	</select>
+	
+	<!-- 커뮤니티 카테고리 조회 -->
+	<select id="getCommunityCategory" resultType="communityCategory">
+		SELECT * FROM community_category
+	</select>
+	
+	<!-- 커뮤니티 게시물 상세 데이터 조회 -->
+	<select id="getCommunity" resultType="community" parameterType="int">
+		SELECT cm.no, cm.category_no, cm.title, cm.content, cm.status, c.name, cm.show_group, cm.insert_date, cm.update_date, 
+    	cm.hit, cm.good, cm.bad FROM community cm, customer c WHERE cm.no = #{no} AND cm.customer_no = c.no 
+	</select>
+	
+	<!-- 커뮤니티 게시물 이미지 조회 -->
+	<select id="getCommunityImg" resultType="communityImg" parameterType="int">
+		SELECT * FROM community_img WHERE community_no = #{no}
+	</select>
+	
+	<!-- 커뮤니티 게시물 조회수 증가 -->
+	<update id="setCommunityHit" parameterType="int">
+		UPDATE community SET hit = hit+1 where no = #{no}
+	</update>
+	
+	<!-- 커뮤니티 게시물 작성자 정보 -->
+	<select id="getCommunityWriter" parameterType="int" resultType="customer">
+		SELECT c.no, c.name, c.profile FROM community cm, customer c WHERE cm.customer_no = c.no AND cm.no = #{no}
+	</select>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="deleteCommunity" parameterType="int">
+		DELETE community WHERE NO = #{no}
+	</delete>
+	
+	
+	
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="vo.customer.CustomerVO" alias="customer"/>
+		<typeAlias type="vo.community.CommunityVO" alias="community"/>
+		<typeAlias type="vo.community.CommunityImgVO" alias="communityImg"/>
+		<typeAlias type="vo.community.CommunityCategoryVO" alias="communityCategory"/>
+		<typeAlias type="vo.weather.AdminAddressDataVO" alias="address"/>
+		<typeAlias type="vo.admin.AdminVO" alias="admin"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="config/mybatis/mapper/customer/customer.xml"/>
+		<mapper resource="config/mybatis/mapper/common/community.xml"/>
+		<mapper resource="config/mybatis/mapper/admin/admin_address_data.xml"/>
+		<mapper resource="config/mybatis/mapper/admin/admin.xml"/>
+	</mappers>
+</configuration>

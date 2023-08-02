@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="address">
+	<select id="selectDepth1" resultType="String">
+		SELECT DISTINCT depth1 FROM admin_address_data ORDER BY depth1
+	</select>
+
+	<select id="selectDepth2" resultType="String" parameterType="String">
+		SELECT DISTINCT depth2 FROM admin_address_data WHERE depth1 = #{depth1} AND depth2 IS NOT NULL ORDER BY depth2
+	</select>
+
+	<select id="selectDepth3" resultType="String" parameterType="address">
+		SELECT DISTINCT depth3 FROM admin_address_data WHERE depth1 = #{depth1} AND depth2 = #{depth2} AND depth3 IS NOT NULL ORDER BY depth3
+	</select>
+</mapper>

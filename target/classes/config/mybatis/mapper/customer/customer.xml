@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="customer">
+	<!-- 회원가입 -->
+	<insert id="joinCustomer" parameterType="customer">
+		INSERT INTO customer (no, kind, name, email, mileage, join_date, profile, gender, agree_email, age_group, unique_id)
+            		VALUES (customer_seq.nextval, #{kind}, #{name}, #{email}, 0, LOCALTIMESTAMP, #{profile}, #{gender}, #{agree_email}, #{age_group}, #{unique_id})
+	</insert>
+	
+	<!-- 로그인 -->	
+	<select id="login" parameterType="String" resultType="customer">
+		SELECT * FROM customer WHERE unique_id = #{no}
+	</select>
+	
+	<!-- 마이페이지 > 기본 데이터 -->
+	<select id="selectBasicData" parameterType="String" resultType="customer">
+		SELECT name, phone, email, to_char(birth_date, 'YYYY-MM-DD') AS birth_date, gender, profile, agree_email FROM customer where unique_id = #{no}
+	</select>
+	<!-- select to_char(ddate, 'YYYY-MM-DD HH24:MI:SS') from test -->
+</mapper>
