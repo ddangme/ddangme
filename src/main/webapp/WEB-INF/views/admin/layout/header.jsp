@@ -5,24 +5,29 @@
 <head>
 	<meta charset="UTF-8">
 	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/admin/sandstone/bootstrap.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/css/bootstrap.min.css">
 	<title>WW admin</title>
+	<!-- summernote -->
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<script src="/ww/resources/summernote/js/summernote-lite.js"></script>
+	<script src="/ww/resources/summernote/lang/summernote-ko-KR.js"></script>
+	<link rel="stylesheet" href="/ww/resources/summernote/css/summernote-lite.css">
+	<link rel="stylesheet" href="/ww/resources/summernote/css/font-list.css">
 </head>
 <body>
 <!-- GNB 영역 -->
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#">Welcome Weather admin</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/community/category">카테고리 관리</a>
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/community/category">게시판 관리</a>
 						<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/community/list">게시물 관리</a>
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/admin/community/notice/list">공지 관리</a>
 						<a class="dropdown-item" href="#">댓글 관리</a>
 						<a class="dropdown-item" href="#">Something else here</a>
 						<div class="dropdown-divider"></div>

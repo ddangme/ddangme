@@ -11,7 +11,7 @@
 		</div>
 	</footer>
 </div>
-<script src="${pageContext.request.contextPath}/resources/common/js/sketchy/custom.js"></script>
-<script src="${pageContext.request.contextPath}/resources/common/js/sketchy/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/custom.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

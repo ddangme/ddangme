@@ -40,8 +40,8 @@
 	</beans:bean>
 	
 	<beans:bean class="controller.admin.AdminCommunityController">
-		<beans:constructor-arg ref="adminService"/>
-		<beans:constructor-arg ref="communityService"/>
+ 		<beans:constructor-arg ref="communityService"/>
+		<beans:constructor-arg ref="adminCommunityService"/>
 	</beans:bean>
 	
 	

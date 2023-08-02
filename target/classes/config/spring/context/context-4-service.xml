@@ -18,4 +18,8 @@
 	<bean id="adminService" class="service.admin.AdminService">
 		<constructor-arg ref="adminDao"/>
 	</bean>
+	
+	<bean id="adminCommunityService" class="service.admin.AdminCommunityService">
+		<constructor-arg ref="adminCommunityDao"/>
+	</bean>
 </beans>

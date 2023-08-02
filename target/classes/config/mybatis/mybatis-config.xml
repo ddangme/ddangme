@@ -20,8 +20,9 @@
 	
 	<mappers>
 		<mapper resource="config/mybatis/mapper/customer/customer.xml"/>
-		<mapper resource="config/mybatis/mapper/common/community.xml"/>
-		<mapper resource="config/mybatis/mapper/admin/admin_address_data.xml"/>
+		<mapper resource="config/mybatis/mapper/customer/community.xml"/>
+		<mapper resource="config/mybatis/mapper/admin/admin-address-data.xml"/>
+		<mapper resource="config/mybatis/mapper/admin/admin-community.xml"/>
 		<mapper resource="config/mybatis/mapper/admin/admin.xml"/>
 	</mappers>
 </configuration>

@@ -2,11 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="community">
-	<!-- 게시판 추가 -->
-	<insert id="insertCategory" parameterType="communityCategory">
-		INSERT INTO community_category VALUES (community_category_seq.nextval, #{name}, #{link}, #{status}, 0)
-	</insert>
-
 	<!-- 커뮤니티 게시물 번호 -->	
 	<select id="getCommunityNo" resultType="int">
 		SELECT community_seq.nextval FROM dual
@@ -36,32 +31,10 @@
 		AND status = 0 ORDER BY cm.no DESC 
 	</select>
 	
-	<!-- 커뮤니티 게시물 검색 (관리자) -->	
-	<select id="searchCommunity" resultType="community" parameterType="community">
-		SELECT cm.category_no, cm.no, cm.title, cm.insert_date, c.name AS name FROM community cm, customer c
-		WHERE cm.customer_no = c.no
-		<if test="category_no != -1">
-			AND category_no like #{no}
-		</if>
-		<if test="title == ''">
-			AND content like #{content}
-		</if>
-		<if test="title == ''">
-			AND title like #{content}
-		</if>
-		AND status = 0 ORDER BY cm.no DESC 
-	</select>
-	
-	<!-- 커뮤니티 게시물 조회 (관리자) -->
-	<select id="getCommunityList" resultType="community">
-		SELECT cm.category_no, cm.no, cm.title, cm.insert_date, c.name AS name FROM community cm, customer c
-    			WHERE cm.customer_no = c.no 
-		AND cm.status = 0 ORDER BY no DESC
-	</select>
-	
 	<!-- 커뮤니티 카테고리 조회 -->
 	<select id="getCommunityCategory" resultType="communityCategory">
 		SELECT * FROM community_category
+		WHERE status = 'Y'
 	</select>
 	
 	<!-- 커뮤니티 게시물 상세 데이터 조회 -->

@@ -7,8 +7,8 @@
 	<title>Welcome Weather</title>
 	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/common/images/CleanLogo.png" type="image/x-icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/css/sketchy/bootstrap.min.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/css/sketchy/custom.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/css/custom.min.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<style>
   		@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
