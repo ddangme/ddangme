@@ -28,7 +28,7 @@
 		<if test="condition != -1">
 			AND category_no = #{no}
 		</if>
-		AND status = 0 ORDER BY cm.no DESC 
+		AND status = 'Y' ORDER BY cm.no DESC 
 	</select>
 	
 	<!-- 커뮤니티 카테고리 조회 -->

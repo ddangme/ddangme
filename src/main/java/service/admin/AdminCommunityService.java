@@ -1,17 +1,24 @@
 package service.admin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import dao.admin.AdminCommunityDAO;
+import dao.customer.CommunityDAO;
 import vo.community.CommunityCategoryVO;
 import vo.community.CommunityImgVO;
 import vo.community.CommunityVO;
 
 public class AdminCommunityService {
 	private AdminCommunityDAO adminCommunityDao;
+	private CommunityDAO communityDao;
 	
-	public AdminCommunityService(AdminCommunityDAO adminCommunityDao) {
+	public AdminCommunityService(AdminCommunityDAO adminCommunityDao, CommunityDAO communityDao) {
 		this.adminCommunityDao = adminCommunityDao;
+		this.communityDao = communityDao;
 	}
 	
 //	커뮤니티 게시판 추가
@@ -74,4 +81,12 @@ public class AdminCommunityService {
 		return true;
 	}
 	
+	
+//	[공지]
+//	공지 리스트 출력
+	public List<CommunityVO> getNoticeList() {
+		List<CommunityVO> list = adminCommunityDao.getNoticeList();
+		if (list.size() == 0) list = null;
+		return list;
+	}
 }

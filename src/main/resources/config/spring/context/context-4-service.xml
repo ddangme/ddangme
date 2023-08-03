@@ -20,6 +20,7 @@
 	</bean>
 	
 	<bean id="adminCommunityService" class="service.admin.AdminCommunityService">
+		<constructor-arg ref="communityDao"/>
 		<constructor-arg ref="adminCommunityDao"/>
 	</bean>
 </beans>

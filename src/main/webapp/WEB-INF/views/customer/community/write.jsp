@@ -28,16 +28,14 @@
 		<div class="col-lg-9">
 			<input type="text" class="form-control" name="title" placeholder="제목을 입력해 주세요." id="title" style="font-family: 'Poor Story', cursive;">
 		</div>
-		<div class="col-lg-12"><br></div>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mt-3">
 			<div class="card border-primary" style="padding:0px 0px;">
 				<div class="card-body" style="padding:0px 0px;">
 					<textarea id="summernote" name="content"></textarea>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-12"><br></div>
-		<div class="col-lg-2">
+		<div class="col-lg-2 mt-3">
 			<div class="form-check">
 				<input class="form-check-input" type="radio" name="show_group" onclick="javascript:radio(this)" id="showGroup0" value="0" checked="">
 				<label class="form-check-label" for="showGroup0">
@@ -45,7 +43,7 @@
 				</label>
 			</div>
 		</div>
-		<div class="col-lg-2">
+		<div class="col-lg-2 mt-3">
 			<div class="form-check">
 				<input class="form-check-input" type="radio" name="show_group" onclick="javascript:radio(this)" id="showGroup1" value="1">
 				<label class="form-check-label" for="showGroup1">
@@ -54,21 +52,17 @@
 			</div>
 		</div>
 		<input type="hidden" name="status" id="status" value="0">
-		<div class="col-lg-8"><br></div>
-		<div class="col-lg-12"><br></div>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mt-3">
 			<input type="hidden" id="main-photo-name">
 			<input type="file" class="form-control" name="imageList" id="imageList" onchange="uploadImg(this.files);" accept="image/*" multiple style="font-family: 'Poor Story', cursive;">
 		</div>
-		<div class="col-lg-12"><br></div>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mt-3">
 			<div class="row" id="preview"></div>
 		</div>
-		<div class="col-lg-12"><br></div>
-		<div class="col-lg-6">
+		<div class="col-lg-6 mt-3">
 			<input type="button" class="btn btn-dark" onclick="preInsertCheck(this.form)" value="임시저장">
 		</div>
-		<div class="col-lg-6" align="right">
+		<div class="col-lg-6 mt-3" align="right">
 			<input type="button" class="btn btn-dark" value="취소">
 			<input type="button" class="btn btn-success" onclick="insertCheck(this.form)" value="등록">
 		</div>

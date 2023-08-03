@@ -2,8 +2,13 @@ package controller.admin;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,6 +26,9 @@ import vo.customer.CustomerVO;
 public class AdminCommunityController {
 	private AdminCommunityService adminCommunityService;
 	private CommunityService communityService;
+
+	@Autowired
+	private ServletContext application;
 	
 	public AdminCommunityController(AdminCommunityService adminCommunityService, CommunityService communityService) {
 		this.adminCommunityService = adminCommunityService;
@@ -98,17 +106,37 @@ public class AdminCommunityController {
 		return "";
 	}
 	
+	
+//	[공지]
 //	공지 관리 페이지 이동
 	@RequestMapping("admin/community/notice/list")
 	public String noticeList(Model model) {
+		List<CommunityVO> noticeList = adminCommunityService.getNoticeList();
+		model.addAttribute("noticeList", noticeList);
 		return "admin/community/noticeList";
 	}
-	
 	
 //	공지 등록 페이지 이동
 	@RequestMapping("admin/community/notice/writeForm")
 	public String noticeWriteForm(Model model) {
 		return "admin/community/notice";
+	}
+	
+//	공지 등록
+	@RequestMapping("admin/community/notice/write")
+	public String noticeWrite(CommunityVO cVo, CommunityImgVO ciVo, Model model, HttpServletRequest request) {
+		String savePath = request.getSession().getServletContext().getRealPath("/resources/community/");
+		
+		cVo.setCategory_no(0);
+		cVo.setStatus("Y");
+		if (communityService.communityWrite(savePath, cVo, ciVo, 0)) {
+			model.addAttribute("message", "등록에 성공하였습니다.");
+			model.addAttribute("url", "/ww/admin/community/notice/list");
+			return "/alert";
+		}
+		model.addAttribute("message", "등록에 실패하였습니다. 다시 시도해주세요.");
+		model.addAttribute("url", request.getHeader("Referer"));
+		return "/alert";
 	}
 	
 	

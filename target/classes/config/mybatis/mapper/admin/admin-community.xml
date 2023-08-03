@@ -29,14 +29,14 @@
 		<if test="title == ''">
 			AND title like #{content}
 		</if>
-		AND status = 0 ORDER BY cm.no DESC 
+		AND status = 'Y' ORDER BY cm.no DESC 
 	</select>
 	
 	<!-- 커뮤니티 게시물 조회 (관리자) -->
 	<select id="getCommunityList" resultType="community">
 		SELECT cm.category_no, cm.no, cm.title, cm.insert_date, c.name AS name FROM community cm, customer c
     			WHERE cm.customer_no = c.no 
-		AND cm.status = 0 ORDER BY no DESC
+		AND cm.status = 'Y' ORDER BY no DESC
 	</select>
 	
 	<!-- 커뮤니티 카테고리 조회 -->
@@ -76,4 +76,13 @@
 	<delete id="deleteCommunity" parameterType="int">
 		DELETE community WHERE NO = #{no}
 	</delete>
+
+
+	<!-- [공지] -->	
+	<!-- 공지 게시물만 출력 -->
+	<select id="get-notice-list" resultType="community">
+		SELECT * FROM community
+		WHERE category_no = 0
+	</select>
+	
 </mapper>

@@ -13,10 +13,15 @@
 		<input class="form-control" placeholder="검색 키워드를 입력해주세요." id="text">
 	</div>
 	<div class="col-lg-1">
-		<div class="row">
-			<button class="btn btn-primary" id="search">검색</button>
+		<div class="row">			
+			<button class="btn btn-light" id="search">
+				<img src="/ww/resources/common/images/search.svg">
+			</button>
 		</div>
 	</div>
+</div>
+<div align="right">
+	<button class="btn btn-primary mt-2" id="addNotice">공지 등록</button>
 </div>
 <div id="community-list">
 	<table class="table table-hover mt-5" id="table-list">
@@ -26,28 +31,32 @@
 					<input class="form-check-input" type="checkbox" id="all-check-list">
 				</th>
 				<th scope="col">게시물 번호</th>
-				<th scope="col">게시판</th>
 				<th scope="col">제목</th>
-				<th scope="col">작성자</th>
 				<th scope="col">등록일</th>
+				<th scope="col">공개 여부</th>
 				<th scope="col">댓글 수</th>
 			</tr>
 		</thead>
 		<tbody id="tbody">
-			<c:forEach var="vo" items="${communityList}">
+			<c:if test="${noticeList == null}">
+				<td align="center" colspan="5">등록된 게시물이 없습니다.</td>
+			</c:if>
+			<c:forEach var="vo" items="${noticeList}">
 				<tr>
 					<td align="center">
 						<input class="form-check-input" type="checkbox" name="check-list" id="${vo.no}">
 					</td>
 					<td align="center">${vo.no}</td>
-					<c:forEach var="category" items="${categoryList}">
-						<c:if test="${vo.category_no == category.no}">
-							<td align="center">${category.name}</td>
-						</c:if>
-					</c:forEach>
 					<td><a style="cursor: pointer;" href="${pageContext.request.contextPath}/admin/community/${vo.no}" class="list-group-item list-group-item-action">${vo.title}</a></td>
-					<td align="center">${vo.name}</td>
 					<td align="center">${vo.insert_date}</td>
+					<td align="center">
+						<c:if test="${vo.status == 'Y'}">
+							공개
+						</c:if>
+						<c:if test="${vo.status == 'N'}">
+							비공개
+						</c:if>
+					</td>
 					<td align="center"></td>
 				</tr>
 			</c:forEach>
@@ -55,23 +64,8 @@
 	</table>
 </div>
 	<div align="right">
-		<button class="btn btn-success" id="delData">게시물 삭제</button>
+		<button class="btn btn-success" id="alter">수정</button>
 	</div>
-<div class="modal" id="showModal" style="margin-top: 150px;">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">본문 보기</h5>
-			</div>
-			<div class="modal-body">
-				<h6 id="modal-text"></h6>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-			</div>
-		</div>
-	</div>
-</div>
 <script>
 // 한 개의 데이터 체크박스 변경
 $('input[name="check-list"]').on("click", function() {
@@ -89,37 +83,8 @@ $("#all-check-list").click(function() {
 	}
 });
 
-// 게시물 삭제
-$("#delData").click(function() {
-	let list = "";
-	$('input[name="check-list"]:checked').each(function() {
-		list += $(this).attr("id") + " ";
-	});
-	if (list === "") {
-		return alert("게시물을 선택 후 시도해주세요.");
-	}
-	if (confirm("게시물을 삭제하시겠습니까?")) {
-		$.ajax({
-			url: "${pageContext.request.contextPath}/admin/community/delete",
-			data: {
-				list: list
-			},
-			type: "POST",
-			success: function(data) {
-				if (data === "") {
-					alert("게시물 삭제에 실패하였습니다.\n계속될 경우 관리자에게 문의해주세요.");
-				} else {
-					alert("게시물이 삭제되었습니다.");
-				}
-				reload();
-			}, 
-			error: function(data) {
-				reload();
-				alert("게시물 삭제에 실패하였습니다.\n계속될 경우 관리자에게 문의해주세요.");
-			}
-		});
-	}
-});
+// 공지 수정
+
 const beforeList = $("#table-list td");
 // 검색 동작
 $("#search").click(function() {
@@ -157,11 +122,16 @@ $("#search").click(function() {
 	// 검색 시 체크박스 초기화
 	$(".form-check-input").prop("checked", false);
 });
-// 테스트테스트2222222
+
 // community-list 영역 새로고침
 function reload() {
 	$("#community-list").load(location.href + " #community-list");
 }
+
+// 공지 등록 버튼
+$("#addNotice").click(function() {
+	location.href="${pageContext.request.contextPath}/admin/community/notice/writeForm";
+});
 </script>
 
 

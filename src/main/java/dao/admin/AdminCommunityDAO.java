@@ -65,4 +65,11 @@ public class AdminCommunityDAO {
 	public int deleteCommunity(int no) {
 		return sqlSession.delete("admin-community.deleteCommunity", no);
 	}
+	
+	
+//	[공지]
+//	공지 리스트 출력
+	public List<CommunityVO> getNoticeList() {
+		return sqlSession.selectList("admin-community.get-notice-list");
+	}
 }

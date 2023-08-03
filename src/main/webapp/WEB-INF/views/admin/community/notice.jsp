@@ -2,34 +2,22 @@
 <%@ include file="/WEB-INF/views/admin/layout/header.jsp"%>
 
 
-<form action="${pageContext.request.contextPath }/community/write" method="post" enctype="multipart/form-data" name="write" style="font-family: 'Poor Story', cursive;">
+<form action="${pageContext.request.contextPath}/admin/community/notice/write" method="post" enctype="multipart/form-data" name="write" id="form">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 style="font-family: 'Poor Story', cursive;">글쓰기</h1><hr>
+			<h1>공지</h1><hr>
 		</div>
-		<div class="col-lg-3">
-			<select class="form-select" name="category_no" id="category_no" style="font-family: 'Poor Story', cursive;">
-				<option>카테고리를 선택하세요.</option>
-				<c:forEach var="category" items="${categoryList}">
-					<c:if test="${category.no != 0}">
-						<option value="${category.no}">${category.name}</option>
-					</c:if>
-				</c:forEach>
-			</select>
-		</div>
-		<div class="col-lg-9">
-			<input type="text" class="form-control" name="title" placeholder="제목을 입력해 주세요." id="title" style="font-family: 'Poor Story', cursive;">
-		</div>
-		<div class="col-lg-12"><br></div>
 		<div class="col-lg-12">
+			<input type="text" class="form-control" name="title" placeholder="제목을 입력해 주세요." id="title">
+		</div>
+		<div class="col-lg-12 mt-3">
 			<div class="card border-primary" style="padding:0px 0px;">
 				<div class="card-body" style="padding:0px 0px;">
 					<textarea id="summernote" name="content"></textarea>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-12"><br></div>
-		<div class="col-lg-2">
+		<div class="col-lg-2 mt-3">
 			<div class="form-check">
 				<input class="form-check-input" type="radio" name="show_group" onclick="javascript:radio(this)" id="showGroup0" value="0" checked="">
 				<label class="form-check-label" for="showGroup0">
@@ -37,7 +25,7 @@
 				</label>
 			</div>
 		</div>
-		<div class="col-lg-2">
+		<div class="col-lg-2 mt-3">
 			<div class="form-check">
 				<input class="form-check-input" type="radio" name="show_group" onclick="javascript:radio(this)" id="showGroup1" value="1">
 				<label class="form-check-label" for="showGroup1">
@@ -46,23 +34,19 @@
 			</div>
 		</div>
 		<input type="hidden" name="status" id="status" value="0">
-		<div class="col-lg-8"><br></div>
-		<div class="col-lg-12"><br></div>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mt-3">
 			<input type="hidden" id="main-photo-name">
-			<input type="file" class="form-control" name="imageList" id="imageList" onchange="uploadImg(this.files);" accept="image/*" multiple style="font-family: 'Poor Story', cursive;">
+			<input type="file" class="form-control" name="imageList" id="imageList" onchange="uploadImg(this.files);" accept="image/*" multiple>
 		</div>
-		<div class="col-lg-12"><br></div>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mt-3">
 			<div class="row" id="preview"></div>
 		</div>
-		<div class="col-lg-12"><br></div>
-		<div class="col-lg-6">
+		<div class="col-lg-6 mt-3">
 			<input type="button" class="btn btn-dark" onclick="preInsertCheck(this.form)" value="임시저장">
 		</div>
-		<div class="col-lg-6" align="right">
+		<div class="col-lg-6 mt-3" align="right">
 			<input type="button" class="btn btn-dark" value="취소">
-			<input type="button" class="btn btn-success" onclick="insertCheck(this.form)" value="등록">
+			<button type="button" class="btn btn-success" id="add-notice">등록</button>
 		</div>
 	</div>
 
@@ -80,10 +64,18 @@ function radio(r) {
 	show_group = r.value;
 }
 // 등록하기
-function insertCheck(form) {
-	document.getElementsByName("show_group")[0].value = show_group;
-	form.submit();
-}
+$("#add-notice").click(function() {
+	if ($("#title").val() === "") {
+		$("#title").focus();
+		return alert("제목을 입력해주세요.");
+	}
+	if ($("#summernote").val() === "") {
+		$("#summernote").focus();
+		return alert("본문을 입력해주세요.");
+	}
+	$("#")
+	$("#form").submit();
+});
 
 // 임시저장
 function preInsertCheck(form) {

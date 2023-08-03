@@ -14,7 +14,9 @@
 	</div>
 	<div class="col-lg-1">
 		<div class="row">
-			<button class="btn btn-primary" id="search">검색</button>
+			<button class="btn btn-light" id="search">
+				<img src="/ww/resources/common/images/search.svg">
+			</button>
 		</div>
 	</div>
 </div>
@@ -34,6 +36,9 @@
 			</tr>
 		</thead>
 		<tbody id="tbody">
+			<c:if test="${communityList == null}">
+				<td align="center" colspan="7">등록된 게시물이 없습니다.</td>
+			</c:if>
 			<c:forEach var="vo" items="${communityList}">
 				<tr>
 					<td align="center">
@@ -54,23 +59,8 @@
 		</tbody>
 	</table>
 </div>
-	<div align="right">
-		<button class="btn btn-success" id="delData">게시물 삭제</button>
-	</div>
-<div class="modal" id="showModal" style="margin-top: 150px;">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">본문 보기</h5>
-			</div>
-			<div class="modal-body">
-				<h6 id="modal-text"></h6>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-			</div>
-		</div>
-	</div>
+<div align="right">
+	<button class="btn btn-success" id="delData">게시물 삭제</button>
 </div>
 <script>
 // 한 개의 데이터 체크박스 변경
@@ -157,7 +147,7 @@ $("#search").click(function() {
 	// 검색 시 체크박스 초기화
 	$(".form-check-input").prop("checked", false);
 });
-// 테스트테스트2222222
+
 // community-list 영역 새로고침
 function reload() {
 	$("#community-list").load(location.href + " #community-list");

@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/common/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/common/images/CleanLogo.png" type="image/x-icon">
 	<title>WW admin</title>
 	<!-- summernote -->
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">

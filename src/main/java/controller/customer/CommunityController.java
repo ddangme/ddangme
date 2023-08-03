@@ -63,14 +63,13 @@ public class CommunityController {
 		}
 		String savePath = request.getSession().getServletContext().getRealPath("/resources/community/");
 		if (!communityService.communityWrite(savePath, cVo, ciVo, customerVo.getNo())) {
-			model.addAttribute("message", "등록에 실패하였습니다. 다시 시도해주세요.");
-			model.addAttribute("url", request.getHeader("Referer"));
-			
+			model.addAttribute("message", "등록에 성공하였습니다.");
+			model.addAttribute("url", "/ww/community/");
 			return "/alert";
 		}
 		
-		model.addAttribute("message", "등록에 성공하였습니다.");
-		model.addAttribute("url", "/ww/community/");
+		model.addAttribute("message", "등록에 실패하였습니다. 다시 시도해주세요.");
+		model.addAttribute("url", request.getHeader("Referer"));
 		return "/alert";
 	}
 		
@@ -82,12 +81,12 @@ public class CommunityController {
 		
 		CommunityVO vo = communityService.getCommunity(no);
 		List<CommunityImgVO> imgVo = communityService.getCommunityImg(no);
-		if (vo == null || vo.getStatus() == 1) {
+		if (vo == null || vo.getStatus().equals("N")) {
 			model.addAttribute("message", "존재하지 않는 게시물 입니다.");
 			model.addAttribute("url", "/ww/community");
 			return "/alert";
 		}
-		if (vo.getShow_group() == 1 && session.getAttribute("login") == null) {
+		if (vo.getShow_group().equals("M") && session.getAttribute("login") == null) {
 			model.addAttribute("message", "회원만 조회 가능한 게시물입니다. 로그인 페이지로 이동하시겠습니까?");
 			model.addAttribute("url", "/ww/customer/loginform");
 			return "/confirm";

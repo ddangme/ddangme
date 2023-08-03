@@ -5,9 +5,9 @@ public class CommunityVO {
 	private int category_no;
 	private String title;
 	private String content;
-	private int status;
+	private String status;
 	private int customer_no;
-	private int show_group;
+	private String show_group;
 	private String insert_date;
 	private String update_date;
 	private int hit;
@@ -50,11 +50,11 @@ public class CommunityVO {
 		this.content = content;
 	}
 
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -66,11 +66,11 @@ public class CommunityVO {
 		this.customer_no = customer_no;
 	}
 
-	public int getShow_group() {
+	public String getShow_group() {
 		return show_group;
 	}
 
-	public void setShow_group(int show_group) {
+	public void setShow_group(String show_group) {
 		this.show_group = show_group;
 	}
 
