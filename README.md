@@ -2,20 +2,17 @@
 
 <div align="center">
   
-  <!-- 소개 배너 이미지나 타이틀 -->
-  
   [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&pause=1000&color=F7319E&center=true&vCenter=true&repeat=true&random=false&width=600&lines=Backend+Developer;)](https://git.io/typing-svg)
   
 </div>
 
 ## 🌟 About Me
 - 👨‍💻 Backend Developer who loves Spring & Java
-- 🌱 Currently learning various Spring technologies
-- 💡 Interested in clean code and software architecture
+- 🌱 Currently expanding knowledge in **MSA**, **DDD**, and various Spring technologies
+- 💡 Interested in clean code, software architecture, and Event-Driven systems
 
 <div align="center">
   
-  <!-- GitHub 통계 - 2개를 나란히 배치 -->
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ddangme&show_icons=true&theme=radical&include_all_commits=true&count_private=true" />
   
 </div>
@@ -25,10 +22,12 @@
   <h4>Backend</h4>
   <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Spring%20Cloud-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=spring-security&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/QueryDSL-0769AD?style=for-the-badge&logo=java&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white" />&nbsp
   
   <h4>Frontend</h4>
   <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />&nbsp
@@ -56,10 +55,19 @@
 
 ## 🚀 DevOps & Cloud
 <div align="center">
+  <h4>Infrastructure & Server</h4>
   <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" />&nbsp
-  <img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" />&nbsp
-  <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Amazon%20EC2-FF9900?style=for-the-badge&logo=amazon-ec2&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Amazon%20S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" />&nbsp
+
+  <h4>Monitoring & Observability</h4>
+  <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Loki-F66829?style=for-the-badge&logo=grafana&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Zipkin-40B5A4?style=for-the-badge&logoColor=white" />&nbsp
 </div>
 
 ## 📫 Contact Me
