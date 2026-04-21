@@ -1,5 +1,4 @@
 # Welcome to my GitHub! 👋
-
 <div align="center">
   
   [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=30&pause=1000&color=F7319E&center=true&vCenter=true&repeat=true&random=false&width=600&lines=Backend+Developer;)](https://git.io/typing-svg)
@@ -27,6 +26,7 @@
   <img src="https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/QueryDSL-0769AD?style=for-the-badge&logo=java&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white" />&nbsp
   
   <h4>Frontend</h4>
@@ -55,10 +55,17 @@
 
 ## 🚀 DevOps & Cloud
 <div align="center">
-  <h4>Infrastructure & Server</h4>
+  <h4>AWS</h4>
   <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Amazon%20EC2-FF9900?style=for-the-badge&logo=amazon-ec2&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Amazon%20S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white" />&nbsp
+
+  <h4>GCP</h4>
+  <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Artifact%20Registry-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Cloud%20SQL-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" />&nbsp
+
+  <h4>Infrastructure & Server</h4>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" />&nbsp
