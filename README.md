@@ -16,6 +16,10 @@
   
 </div>
 
+## 🏆 Awards
+- **최우수상** | 2025 관광데이터 활용 공모전 (한국관광공사 x Kakao)
+  - 한국관광공사의 API와 Kakao의 기술을 활용하여 [똑똣](https://github.com/toktot) 백엔드 / 인프라 개발
+
 ## 💻 Main Tech Stack
 <div align="center">
   <h4>Backend</h4>
